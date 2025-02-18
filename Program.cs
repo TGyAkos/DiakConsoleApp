@@ -137,8 +137,10 @@
         {
             Console.WriteLine("16. feladat");
             var groupedDiakok = diakok.GroupBy(diak => diak.OldalSzam / 100).OrderBy(group => group.Key).ToList();
+
             Console.WriteLine("\tA diakok olvasasanak kategorizasala 100-as intervallumokkent, minimum ertekek:");
             groupedDiakok.Where(group => group.Count() == groupedDiakok.Min(group => group.Count())).ToList().ForEach(group => Console.WriteLine($"\t{group.Key * 100 + 1}-{group.Key * 100 + 100} oldal: {group.Count()} diak"));
+
             Console.WriteLine("\tA diakok olvasasanak kategorizasala 100-as intervallumokkent, maximum ertekek:");
             groupedDiakok.Where(group => group.Count() == groupedDiakok.Max(group => group.Count())).ToList().ForEach(group => Console.WriteLine($"\t{group.Key * 100 + 1}-{group.Key * 100 + 100} oldal: {group.Count()} diak"));
 
